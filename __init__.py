@@ -6,4 +6,5 @@ TextProcessing
     - normalizing(series, method)
     - detokenize
 TextVisuals
+    - word_cloud(series, remove_list, title)
 """
