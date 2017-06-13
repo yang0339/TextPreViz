@@ -64,9 +64,12 @@ Provide high-level API to create histograms for stats and WordCloud to view keyw
 from TextVisuals import *
 plot_barh(df[df.label!=0].label,"example barh_plot",3) # top 3 labels
 ```
+![e-barhplot](https://github.com/yang0339/TextPreViz/blob/master/Visual%20examples/example_plot_barh.png)
 
 ```python
 from TextVisuals import *
 word_cloud(df[df.label.str.contains('Pet', na=False)].normalized, [], 'Word Cloud of Pet Category')
 word_cloud(find_neighbor(df[df.label.str.contains('Pet', na=False)].normalized, ['cat','cats', 'dog', 'dogs'], 3),['pls'], '\"cat(s) & dog(s)\"\'s nearest 3 neighbors')
 ```
+![e1](https://github.com/yang0339/TextPreViz/blob/master/Visual%20examples/word_cloud1.png)
+![e2](https://github.com/yang0339/TextPreViz/blob/master/Visual%20examples/word_cloud2.png)
