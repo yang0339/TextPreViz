@@ -9,9 +9,9 @@ df['normalized'] = remove_punc(df.normalized)
 # df['normalized'] = detokenize(df['normalized'])
 print(df.normalized.head(3))
 
-from TextVisuals import word_cloud, find_neighbor, plot_hist
+from TextVisuals import *
 word_cloud(df[df.label.str.contains('Pet', na=False)].normalized, [], 'test')
-word_cloud(find_neighbor(df[df.label.str.contains('Pet', na=False)].normalized, 'dog',3),[],'neightbor')
+word_cloud(find_neighbor(df[df.label.str.contains('Pet', na=False)].normalized, 'dog',3),['pls'],'neighbor')
 
 
-plot_hist(df.label,"haha")
+plot_barh(df.label,"haha")
