@@ -65,5 +65,27 @@ def find_neighbor(series, key, distance):
                     neighbor_word.append(text_list[num+c])
 
     # print("\n",neighbor_word[:3])
-    # print("\nlength: ",len(neighbor_word))
+    # output: a list like >>> ['t','test','haha']
     return neighbor_word
+
+
+def plot_hist(series, title, highest):
+    from collections import Counter
+    c = Counter(series).most_common(highest)
+    labels, values = zip(*c)
+
+    import matplotlib.pyplot as plt
+    import numpy as np
+    fig, ax = plt.subplots(figsize=(8, highest / 2))
+
+    ax.barh(bottom=np.arange(0, len(values)), width=values,
+            height=0.8, tick_label=labels, linewidth=2)
+    for i, v in enumerate(values):  # show values
+        ax.text(v + 1, i, str(v), color='blue', fontweight='bold')
+    ax.set_title(title)
+    ax.set_xlabel("count")
+    # ax.legend(legend)
+
+    plt.show()
+    return
+
