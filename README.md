@@ -58,7 +58,8 @@ Modules can be cascaded together for concise programming:
 ```python
 from TextProcessing import * 
 # df.text is the pandas series storeing raw unprocessed text
-detokenize(remove_punc(normalizing(remove_symbols(pre_processing(df.text)), 'lemma')))
+# note that some pd.Series are added along the text to make sure data are passed between units in dataframe format instead of list
+detokenize(remove_punc(pd.Series(normalizing(remove_symbols(pd.Series(pre_processing(df.text))), 'lemma'))))
 ```
 Or you can distinctively store intermediate steps in DataFrame as well
 ```python
