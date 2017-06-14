@@ -55,10 +55,11 @@ Provide high-level API to create histograms for stats and WordCloud to view keyw
     - input can be given as both *pandas series* or *list* (words already tokenized) e.g.```>>>['apple','banana','car']```)
     - self-defind list as *remove_list* to get rid of undesired words displayed
     - *title*: give a title to the viz
-* **find_neighbor(series, key, distance)**
+* **find_neighbor(series, key_list, distance)**
     - a supplementary to aids plotting word cloud
-    - finding the words distribution of *distance* x near a particular search word (*key*) 
-    
+    - finding the words distribution of *distance* x near a particular list of search words (*key_list*) 
+
+Some Notes: <br>Word Cloud is using redundant double encoding in terms of color (hue) and size of words. The **bigger and darker** a word is, the more frequent it appear in the corpus.
 ##### Examples
 ```python
 from TextVisuals import *

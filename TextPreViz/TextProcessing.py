@@ -54,7 +54,9 @@ def pre_processing(series):
     series.replace(to_replace=NUMBERS_PATTERN, value='$NUM$', regex=True, inplace=True)
 
     # Regularize Unstructured Text
-    df_dict = pd.read_csv("self_constructed_dict.csv", sep=",", names=['original','normalized'])
+    import pkg_resources
+    DATA_PATH = pkg_resources.resource_filename('TextPreViz','self_constructed_dict.csv')
+    df_dict = pd.read_csv(DATA_PATH, sep=",", names=['original','normalized'])
     df_dict.fillna(value='', inplace=True)
 
     # output as dictionary (hash table) to speed up process
