@@ -1,9 +1,31 @@
 # TextPreViz
 
-### Created 2017-JUN-12
 This package wraps nltk, matplotlib to aids text analysis and visualization.
+### Created 2017-JUN-12
 
-### Two sub-packages to use:
+### Installation
+Make sure you installed pip & git already.
+In the command line,  type in
+```
+pip install git+https://github.com/yang0339/TextPreViz.git
+```
+and here you go
+
+### Quick Start
+0. Import the modules
+```python
+from TextPreViz.TextVisuals import *
+from TextPreViz.TextProcessing import *
+```
+1. Prepare your raw text in a pandas series e.g.```>>> df['text']```;
+2. process it ```>>> df['processed'] = remove_punc(normalizing(remove_symbols(pre_processing(df.text)), 'lemma'))```<br>
+if you want a de-tokenized version: ```>>> df['detokenized'] = detokenize(df['processed'])```
+3. visualize word distribution via word cloud: ```>>> word_cloud(df['processed'], [], 'Word Cloud Example')```
+
+That's most of the stuff. Dive into Documentation for detailed instructions if you wonders what are the parameters.
+
+### Documentation
+There are two sub-packages coming along for text processing and visualization separately.
 #### TextProcessing
 Generally speaking, do text processing <br>
 notes: *series* as input is to indicates *pandas series*
