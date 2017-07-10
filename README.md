@@ -63,6 +63,8 @@ detokenize(remove_punc(pd.Series(normalizing(remove_symbols(pd.Series(pre_proces
 ```
 Or you can distinctively store intermediate steps in DataFrame as well
 ```python
+# if we pass the result back to the dataframe, do make sure at the beginning, i.e. df.text
+# contains no NaNs, or otherwise the lengths might not match.
 df['pre-processing'] = pre_processing(df.text)
 df['normalized'] = normalizing(remove_symbols(df['pre-processing']),'stem')
 df['detokenized'] = detokenize(remove_punc(df['normalized']))
