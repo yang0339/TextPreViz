@@ -1,6 +1,7 @@
 # TextPreViz
 
 This package wraps nltk, matplotlib to aids text analysis and visualization.
+### Updated 2017-JUL-12, enable choice for retweet removal.
 ### Created 2017-JUN-12
 
 ### Installation
