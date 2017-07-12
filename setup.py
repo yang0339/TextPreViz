@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='TextPreViz',
-      version='0.1',
+      version='0.2',
       description='text analysis and visualization aider',
       url='https://github.com/yang0339/TextPreViz',
       author='Fred Yang',

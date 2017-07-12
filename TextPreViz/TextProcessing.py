@@ -17,7 +17,7 @@ Normalize text to:
 # INPUT: DataFrame series
 # OUTPUT: DataFrame series
 
-def pre_processing(series):
+def pre_processing(series, remove_retweet):
 
     import pandas as pd
     import re
@@ -44,8 +44,11 @@ def pre_processing(series):
     series.replace(to_replace=EMOJI_PATTERN, value='$EMOJI$', regex=True, inplace=True)
     series.replace(to_replace=SMILEYS_PATTERN, value='$EMOJI$', regex=True, inplace=True)
     # 3. Remove retweets
-    series = series[~series.str.startswith('RT', na=False)] # have to use na=False to stop ErrorMessage
-    series.reset_index(drop=True, inplace=True)
+    if remove_retweet==True:
+        series = series[~series.str.startswith('RT', na=False)] # have to use na=False to stop ErrorMessage
+        series.reset_index(drop=True, inplace=True)
+    else:
+        series.replace(to_replace='^RT', value='', regex=True, inplace=True)
     # 4. userMention '@': replace with $NAME$
     series.replace(to_replace=MENTION_PATTERN, value='$NAME$', regex=True, inplace=True)
     # 5. Hashtag: replace with $HASH$

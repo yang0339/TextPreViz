@@ -29,11 +29,13 @@ There are two sub-packages coming along for text processing and visualization se
 #### TextProcessing
 Generally speaking, do text processing <br>
 notes: *series* as input is to indicates *pandas series*
-* **pre_processing(series)**
+* **pre_processing(series, remove_retweet)**
     - remove urls
     - remove emoji and smileys (replace with $EMOJI$)
     - Specifically for social media data:
-        - remove retweet
+        - remove retweet 
+            - use [True] to remove all retweet, may cause the length of resulting series to shrink
+            - Use [False] to only remove the starting characters **RT**, keep resulting series length unchanged
         - remove @user (replace with $NAME$)
         - remove \# in \#hashtag
         - remove numbers (replace with $NUM$)
