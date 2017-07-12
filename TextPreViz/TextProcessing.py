@@ -17,7 +17,7 @@ Normalize text to:
 # INPUT: DataFrame series
 # OUTPUT: DataFrame series
 
-def pre_processing(series, remove_retweet):
+def pre_processing(series_original, remove_retweet):
 
     import pandas as pd
     import re
@@ -39,6 +39,7 @@ def pre_processing(series, remove_retweet):
 
 
     # 1. remove url
+    series = series_original.copy()
     series.replace(to_replace=URL_PATTERN, value='', regex=True, inplace=True)
     # 2. remove emoji
     series.replace(to_replace=EMOJI_PATTERN, value='$EMOJI$', regex=True, inplace=True)
